@@ -37,8 +37,10 @@ def build_contingency_table(y, y_a, y_b):
 
 def mcnemar_test(y, y_a, y_b):
     '''
-    Given true labels and prdictions from two binary classifiers a, b,
+    Given true labels and predictions from two binary classifiers a, b,
     perfrom McNemar test on the these predictions
+    Return (chi2, p): Chi2 of the test statistic, p-value of the null hypothesis
     '''
     chi2, p = mcnemar(build_contingency_table(y, y_a, y_b))
     print('Chi2 = {}, P = {}'.format(chi2, p))
+    return chi2, p
